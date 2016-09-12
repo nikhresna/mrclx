@@ -1,0 +1,49 @@
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+	color: rgba(0,0,0,0.87);
+	background: #fbfbfb;
+	padding-top: 60px;
+	line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  // font-family: 'Fjord One', serif;
+}
+
+a {
+	color: #5f9ea0;
+	font-weight: 600;
+	@include transition(.3s all ease);
+
+	&,
+	&:hover,
+	&:visited,
+	&:active,
+	&:focus {
+		outline: none;
+		text-decoration: none;
+	}
+	&:hover {
+		color: #335556;
+	}
+}
+
+p {
+	a {
+		color: #5f9ea0;
+	}
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #ddd;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 5px;
+}

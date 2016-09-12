@@ -1,0 +1,31 @@
+#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px 20px;
+	background: #fff;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+	z-index: 10;
+
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+		
+		li {
+			display: inline-block;
+			padding: 5px;
+		}
+	}
+
+	a {
+		color: rgba(0, 0, 0, .87);
+		font-weight: 600;
+	}
+}
+
+.logo {
+	width: 30px;
+	float: left;
+}

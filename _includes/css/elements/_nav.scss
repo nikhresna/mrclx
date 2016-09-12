@@ -1,0 +1,18 @@
+#nav {
+
+	#menu-main_menu {
+		float: left;
+	}
+
+	.menu-item {
+		position: relative;
+
+		&.current-menu-item {
+
+		}
+	}
+}
+
+.helper-nav {
+	float: right;
+}

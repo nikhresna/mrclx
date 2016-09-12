@@ -1,0 +1,21 @@
+/*
+Theme Name: mrclx
+Author: Nikko Khresna
+Version: 1.0
+cd wp-content/themes/mrclx && sass --watch _includes/css/style.scss:style.css --no-cache --style compressed --sourcemap=none
+cd wp-content/themes/mrclx && sass --watch _includes/css/style.scss:style.css --no-cache --sourcemap=none
+*/
+
+@import "mixin";
+@import "partials";
+@import "helpers";
+@import "normalize";
+@import "general";
+@import "elements/header";
+@import "elements/footer";
+@import "elements/nav";
+@import "elements/article";
+@import "elements/single-page";
+@import "elements/markdown";
+@import "elements/comments";
+@import "elements/pagination";
