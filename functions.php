@@ -7,6 +7,7 @@ function register_menus() {
 		'primary_menu' => 'Primary Menu',
 		'footer_menu' => 'Footer Menu',
 		'footer_links' => 'Footer Links',
+		'logout_menu' => 'Logout Links',
 	) );
 }
 
@@ -107,7 +108,7 @@ function comment_callback($comment, $args, $depth) {
 	  </div>
 	  <div class="comment-meta commentmetadata">
     	<?php printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?><?php edit_comment_link( __( ' - Edit - ' ), '  ', '' ); ?>
-    	<?php if ( current_user_can('edit_post', $comment->comment_post_ID) ) {
+    	<?php if ( current_user_can('edit_comment', $comment->comment_post_ID) ) {
 				$url = esc_url(wp_nonce_url( "/wp-admin/comment.php?action=deletecomment&p=$comment->comment_post_ID&c=$comment->comment_ID", "delete-comment_$comment->comment_ID" ));
 				echo "<a href='$url' class='delete:the-comment-list:comment-$comment->comment_ID delete'>" . __('Delete') . "</a> ";
 			} ?>
@@ -133,9 +134,10 @@ function new_default_avatar($avatar_defaults) {
 	return $avatar_defaults;
 }
 
-// edit profile page
 
+// edit profile page
 remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
 
 // login page
 function login_stylesheet() {
@@ -159,3 +161,8 @@ add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
 remove_action('login_form', 'wsl_render_auth_widget_in_wp_login_form');
 add_action('login_footer', 'wsl_render_auth_widget_in_wp_login_form');
+
+// add_filter( 'login_url', 'my_login_page', 10, 3 );
+function my_login_page( $login_url, $redirect, $force_reauth ) {
+    return home_url( '/login/?redirect_to=' . $redirect );
+}

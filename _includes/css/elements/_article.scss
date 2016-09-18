@@ -12,6 +12,17 @@
 .article-list-cat {
 	margin: 0 20px 1px;
 	font-size: 14px;
+	color: #a0a0a0;
+
+	a {
+		color: #c1c1c1;
+		font-weight: 500;
+		font-size: 	12px;
+
+		&:hover {
+			color: #a0a0a0;
+		} 
+	}
 }
 
 .article-list-image {
@@ -52,3 +63,10 @@
 	text-transform: uppercase;
 	z-index: 1;
 }
+
+img.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }

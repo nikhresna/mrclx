@@ -25,7 +25,7 @@ if (have_posts()) {
         <a href="<?php the_permalink(); ?>" class="article-list-image" style="background-image: url(<?php the_post_thumbnail_url('full', array('class' => 'article-image')); ?>);">
           <?php // the_post_thumbnail('full', array('class' => 'article-image')); ?>
           <div class="article-image-overlay"></div>
-          <span class="article-link"><?php the_title(); ?></span>
+          <h2 class="article-link"><?php the_title(); ?></h2>
         </a>
       </li>
       <?php

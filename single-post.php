@@ -12,7 +12,7 @@ if (have_posts()) :
       <li class="article-list-item">
         <div class="article-list-cat">
           <?php
-            echo the_category(',');
+            echo the_category(', ');
           ?>
         </div>
         <div class="article-list-image" style="background-image: url(<?php the_post_thumbnail_url('full', array('class' => 'article-image')); ?>);">
@@ -23,6 +23,12 @@ if (have_posts()) :
 
         <div class="article-content">
         	<?php 
+        		if (current_user_can('edit_posts' )) {
+        			?>
+        				<a href="<?php echo get_edit_post_link(); ?>">Edit</a>
+        			<?php
+        		}
+
 	        	the_content();
 
 	        	$form_args = array(
@@ -39,7 +45,7 @@ if (have_posts()) :
 						  'must_log_in' => '<p class="must-log-in">' .
 						    sprintf(
 						      __( 'You must be <a href="%s">logged in</a> to post a comment.' ),
-						      wp_login_url( apply_filters( 'the_permalink', get_permalink() ) )
+						      get_home_url('', '/login')
 						    ) . '</p>',
 
 						  'logged_in_as' => '',

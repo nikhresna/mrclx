@@ -1,0 +1,105 @@
+.page-template-login-page {
+	// background: -webkit-linear-gradient(left, #615b6f, #706879, #887a88 70%, #a9989e);
+	// background: -moz-linear-gradient(left, #615b6f, #706879, #887a88 70%, #a9989e);
+	// background: -o-linear-gradient(left, #615b6f, #706879, #887a88 70%, #a9989e);
+	// background: -ms-linear-gradient(left, #615b6f, #706879, #887a88 70%, #a9989e);
+	// background: linear-gradient(left, #615b6f, #706879, #887a88 70%, #a9989e);
+	background: #000;
+}
+
+.wp-social-login-widget {
+	margin: 10% 20px;
+	text-align: center;
+}
+
+.wp-social-login-provider-list {
+	padding: 0;
+	position: relative;
+	height: 120px;
+}
+
+.wp-social-login-connect-with {
+	margin-bottom: 30px;
+	font-size: 18px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.wp-social-login-provider {
+	text-indent: -9999px;
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  color: transparent;
+  position: absolute;
+	@include transform(translatex(-50%) rotate(45deg));
+	border: 1px solid #fff;
+	@include transition(none);
+
+  &:before {
+    position: absolute;
+  	content: '';
+  	height: 60px;
+  	width: 60px;
+    top: 0;
+    left: 0;
+	  background-size: 70%;
+	  background-repeat: no-repeat;
+	  background-position: center;
+		@include transform(rotate(-45deg));
+  }
+
+  &:after {
+		position: absolute;
+		content: '';
+		width: 0;
+		height: 0;
+		border-left: 41px solid transparent;
+		border-right: 41px solid transparent;
+		top: -6px;
+		right: -27px;
+		transform: rotate(45deg);
+		z-index: -1;
+	}
+}
+
+.wp-social-login-provider-facebook {
+	background-color: #dfe3ee;
+	left: 50%;
+
+  &:before {
+		background-image: url('_includes/img/facebook.svg');
+	}
+
+	&:after {
+		border-bottom: 41px solid #8b9dc3;
+	}
+}
+
+.wp-social-login-provider-github {
+	background-color: #fff;
+	left: 50%;
+	top: 88px;
+
+  &:before {
+		background-image: url('_includes/img/github.svg');
+	}
+
+	&:after {
+		border-bottom: 41px solid #6cc644;		
+	}
+}
+
+.wp-social-login-provider-google {
+	background-color: #d4d1d1;
+  left: calc(50% + 44px);
+	top: 44px;
+
+	&:before {
+		background-image: url('_includes/img/google.svg');
+	}
+
+	&:after {
+		border-bottom: 41px solid #bfbfbf;		
+	}
+}

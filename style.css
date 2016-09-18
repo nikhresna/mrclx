@@ -391,6 +391,9 @@ body {
   padding-top: 60px;
   line-height: 1.4; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: Montserrat, serif; }
+
 a {
   color: #5f9ea0;
   font-weight: 600;
@@ -431,10 +434,13 @@ p a {
     list-style-type: none; }
     #header ul li {
       display: inline-block;
-      padding: 5px; }
+      padding: 8px; }
   #header a {
+    font-family: Montserrat;
     color: rgba(0, 0, 0, 0.87);
-    font-weight: 600; }
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px; }
 
 .logo {
   width: 30px;
@@ -489,7 +495,8 @@ p a {
 #nav #menu-main_menu {
   float: left; }
 #nav .menu-item {
-  position: relative; }
+  position: relative;
+  font-family: Montserrat; }
 
 .helper-nav {
   float: right; }
@@ -505,7 +512,14 @@ p a {
 
 .article-list-cat {
   margin: 0 20px 1px;
-  font-size: 14px; }
+  font-size: 14px;
+  color: #a0a0a0; }
+  .article-list-cat a {
+    color: #c1c1c1;
+    font-weight: 500;
+    font-size: 12px; }
+    .article-list-cat a:hover {
+      color: #a0a0a0; }
 
 .article-list-image {
   position: relative;
@@ -538,6 +552,30 @@ p a {
   font-size: 20px;
   text-transform: uppercase;
   z-index: 1; }
+
+img.alignright {
+  float: right;
+  margin: 0 0 1em 1em; }
+
+img.alignleft {
+  float: left;
+  margin: 0 1em 1em 0; }
+
+img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.alignright {
+  float: right; }
+
+.alignleft {
+  float: left; }
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
 
 .article-content {
   margin: auto;
@@ -693,6 +731,9 @@ pre.language-ruby {
     padding: 5px 20px;
     background: #807e7e; }
 
+.aligncenter {
+  text-align: center; }
+
 .comments-list ul {
   margin: 0;
   padding: 0;
@@ -735,8 +776,8 @@ pre.language-ruby {
   max-width: 960px;
   margin: auto; }
 
-.older {
-  float: right; }
+.newer {
+  margin-right: 20px; }
 
 .more-readings {
   display: block;
@@ -745,3 +786,92 @@ pre.language-ruby {
   text-align: center;
   font-size: 12px;
   font-weight: 600; }
+
+.page-template-login-page {
+  background: #000; }
+
+.wp-social-login-widget {
+  margin: 10% 20px;
+  text-align: center; }
+
+.wp-social-login-provider-list {
+  padding: 0;
+  position: relative;
+  height: 120px; }
+
+.wp-social-login-connect-with {
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase; }
+
+.wp-social-login-provider {
+  text-indent: -9999px;
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  color: transparent;
+  position: absolute;
+  -webkit-transform: translatex(-50%) rotate(45deg);
+  -moz-transform: translatex(-50%) rotate(45deg);
+  -ms-transform: translatex(-50%) rotate(45deg);
+  -o-transform: translatex(-50%) rotate(45deg);
+  transform: translatex(-50%) rotate(45deg);
+  border: 1px solid #fff;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none; }
+  .wp-social-login-provider:before {
+    position: absolute;
+    content: '';
+    height: 60px;
+    width: 60px;
+    top: 0;
+    left: 0;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .wp-social-login-provider:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 41px solid transparent;
+    border-right: 41px solid transparent;
+    top: -6px;
+    right: -27px;
+    transform: rotate(45deg);
+    z-index: -1; }
+
+.wp-social-login-provider-facebook {
+  background-color: #dfe3ee;
+  left: 50%; }
+  .wp-social-login-provider-facebook:before {
+    background-image: url("_includes/img/facebook.svg"); }
+  .wp-social-login-provider-facebook:after {
+    border-bottom: 41px solid #8b9dc3; }
+
+.wp-social-login-provider-github {
+  background-color: #fff;
+  left: 50%;
+  top: 88px; }
+  .wp-social-login-provider-github:before {
+    background-image: url("_includes/img/github.svg"); }
+  .wp-social-login-provider-github:after {
+    border-bottom: 41px solid #6cc644; }
+
+.wp-social-login-provider-google {
+  background-color: #d4d1d1;
+  left: calc(50% + 44px);
+  top: 44px; }
+  .wp-social-login-provider-google:before {
+    background-image: url("_includes/img/google.svg"); }
+  .wp-social-login-provider-google:after {
+    border-bottom: 41px solid #bfbfbf; }

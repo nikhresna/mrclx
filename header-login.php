@@ -7,11 +7,13 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="icon" href="<?php echo get_stylesheet_directory_uri().'/_includes/img/icon.png' ?>" type="image/x-icon"/>
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri().'/_includes/img/icon.png' ?>" type="image/x-icon"/>
+	<?php wp_head() ?>
+	<?php wsl_add_javascripts(); ?>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Lato" rel="stylesheet">
-	<link href="<?php echo get_stylesheet_directory_uri().'/style.css' ?>" type="text/css" rel="stylesheet">
+	<!-- <link href="<?php echo get_stylesheet_directory_uri().'/style.css' ?>" type="text/css" rel="stylesheet"> -->
 </head>
 <body <?php echo body_class(); ?>>
-	<div id="header">
+<div id="header">
 		<nav id="nav">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/_includes/img/logo.png" class="logo">
 			<?php
@@ -28,21 +30,10 @@
 				}
 			?>
 		</nav>
-		<?php // get_search_form( true ); ?>
-		<ul class="helper-nav">
-			<?php if (is_user_logged_in()){ ?>
-				<li>
-					<a href="<?php echo wp_logout_url(get_permalink()); ?>">Logout</a>
-				</li>
-			<?php } else { ?>
-				<li>
-					<a href="<?php echo wp_login_url(get_permalink()); ?>">Login</a>
-				</li>
-			<?php } ?>
-		</ul>
 	</div>
 
 <?php 
 	$content = ob_get_clean();
 	echo $content;
 ?>
+
