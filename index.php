@@ -6,8 +6,11 @@ get_header();
 
 if (have_posts()) {
   if (is_category()) {
-    var_dump(single_cat_title('', true));
-    var_dump(single_term_title('', true));
+    ?> 
+    <div class="category-title">
+      <h3><?php echo $wp_query->get_queried_object()->name ?></h3> 
+    </div>
+    <?php
   }
 
   ?><ul class="article-list"><?php

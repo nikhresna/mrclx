@@ -553,6 +553,10 @@ p a {
   text-transform: uppercase;
   z-index: 1; }
 
+.category-title {
+  margin: 20px;
+  text-transform: uppercase; }
+
 img.alignright {
   float: right;
   margin: 0 0 1em 1em; }
@@ -739,8 +743,11 @@ pre.language-ruby {
   padding: 0;
   list-style-type: none; }
   .comments-list ul li.comment {
-    margin: 20px 0;
+    margin: 5px 0; }
+  .comments-list ul .comment.depth-1 {
     border-left: 3px solid #d4d4d4; }
+  .comments-list ul .comment.depth-2 {
+    margin-left: 10px; }
 .comments-list p {
   margin: 0; }
 
@@ -751,16 +758,23 @@ pre.language-ruby {
 .comment-author.vcard {
   margin-right: 10px; }
   .comment-author.vcard img {
-    border-radius: 0 40%; }
+    border-radius: 0 0 57%; }
 
 .author-name {
   font-size: 16px; }
 
 .comment-body {
-  display: flex; }
+  display: flex;
+  -webkit-transition: 0.3s all ease;
+  -moz-transition: 0.3s all ease;
+  -ms-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+  padding-bottom: 5px;
+  padding-right: 10px; }
 
 .comment-text {
-  margin: 5px 0; }
+  margin-bottom: 10px; }
 
 .commentmetadata {
   font-size: 12px;
@@ -768,6 +782,25 @@ pre.language-ruby {
 
 #comment {
   width: 100%; }
+
+.comment-link {
+  display: inline-block;
+  width: 13px;
+  vertical-align: middle;
+  cursor: pointer; }
+
+.js-copy {
+  opacity: 0; }
+
+.js-notice {
+  display: inline; }
+
+.comment-reply-link {
+  font-size: 12px;
+  float: left; }
+
+#cancel-comment-reply-link {
+  margin-left: 20px; }
 
 .pagination {
   margin: 0 20px 50px; }

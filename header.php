@@ -7,13 +7,15 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="icon" href="<?php echo get_stylesheet_directory_uri().'/_includes/img/icon.png' ?>" type="image/x-icon"/>
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri().'/_includes/img/icon.png' ?>" type="image/x-icon"/>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat|Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lato:400,700,900" rel="stylesheet">
 	<link href="<?php echo get_stylesheet_directory_uri().'/style.css' ?>" type="text/css" rel="stylesheet">
 </head>
 <body <?php echo body_class(); ?>>
 	<div id="header">
 		<nav id="nav">
-			<img src="<?php echo get_stylesheet_directory_uri(); ?>/_includes/img/logo.png" class="logo">
+			<a href="<?php echo home_url() ?>">
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/_includes/img/logo.png" class="logo">
+			</a>
 			<?php
 				// call primary menu
 				if( has_nav_menu('primary_menu') ) {
