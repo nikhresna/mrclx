@@ -122,7 +122,7 @@ function comment_callback($comment, $args, $depth) {
 				comment_reply_link( array_merge( $args, array(
             'add_below' => 'div-comment',
             'depth'     => $depth,
-            'reply_text' => 'Reply',
+            'reply_text' => '- Reply',
             'max_depth' => $args['max_depth'],
             'before'    => '',
             'after'     => '',
@@ -177,4 +177,22 @@ add_action('login_footer', 'wsl_render_auth_widget_in_wp_login_form');
 add_filter( 'login_url', 'my_login_page', 10, 3 );
 function my_login_page( $login_url, $redirect, $force_reauth ) {
     return home_url( '/login/?redirect_to=' . $redirect );
+}
+
+// sharer
+function sharer() {
+	?>
+		<h4>Sharing is caring via:</h4>
+		<ul>
+			<li>
+				<a href="https://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>">FB</a>
+			</li>
+			<li>
+				<a href="http://line.me/R/msg/text/?<?php the_title(); ?>%0D%0A<?php the_permalink(); ?>">LINE</a>
+			</li>
+			<li>
+				<a href="whatsapp://send?text=<?php the_permalink(); ?>" data-action="share/whatsapp/share">WA</a>
+			</li>
+		</ul>
+	<?php
 }

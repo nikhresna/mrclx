@@ -26,10 +26,18 @@ if (have_posts()) {
           ?>
         </div>
         <a href="<?php the_permalink(); ?>" class="article-list-image" style="background-image: url(<?php the_post_thumbnail_url('full', array('class' => 'article-image')); ?>);">
-          <?php // the_post_thumbnail('full', array('class' => 'article-image')); ?>
           <div class="article-image-overlay"></div>
           <h2 class="article-link"><?php the_title(); ?></h2>
+          <div class="article-list-cat mobile">
+            <?php
+              echo the_category(', ');
+            ?>
+          </div>
         </a>
+        <div class="the_excerpt">
+          <?php the_excerpt(); ?>
+          <a href="<?php the_permalink(); ?>" class="read-more">Full Reading</a>
+        </div>
       </li>
       <?php
       

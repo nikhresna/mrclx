@@ -22,7 +22,7 @@ if (have_posts()) :
         </div>
 
         <div class="article-content">
-        	<?php 
+        	<?php  
         		if (current_user_can('edit_posts' )) {
         			?>
         				<a href="<?php echo get_edit_post_link(); ?>">Edit</a>
@@ -30,6 +30,8 @@ if (have_posts()) :
         		}
 
 	        	the_content();
+
+            sharer();
 
 	        	$form_args = array(
 						  'name_submit'       => 'submit',
@@ -52,7 +54,7 @@ if (have_posts()) :
 
 						  'comment_notes_before' => '',
 
-						  'comment_notes_after' => '',
+						  'comment_notes_after' => '<p class="comment_notes_after">* markdown supported. <a href="'. get_home_url() .'/markdown-reference">Markdown reference.</a></p>',
 
 						  'fields' => apply_filters( 'comment_form_default_fields', $fields ),
 						);

@@ -65,7 +65,11 @@
 	</div>
 	<!-- <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js" integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8=" crossorigin="anonymous"></script> -->
 	<script src="<?php echo get_stylesheet_directory_uri().'/_includes/js/script.js' ?>" type="text/javascript" async></script>
-	<script src="<?php echo get_stylesheet_directory_uri().'/_includes/js/comment-reply.js' ?>" type="text/javascript" async></script>
+
+	<?php if (is_singular()) { ?>
+		<script src="<?php echo get_stylesheet_directory_uri().'/_includes/js/comment-reply.js' ?>" type="text/javascript" async></script>
+	<?php	} ?>
+
 	<script src="<?php echo get_stylesheet_directory_uri().'/_includes/vendor/prism/prism.js' ?>" type="text/javascript" async></script>
 </body>
 
