@@ -57,6 +57,7 @@
 
 #comment {
 	width: 100%;
+	height: 136px;
 }
 
 .comment-form-comment {
@@ -86,8 +87,13 @@
 .comment-reply-link {
 	font-size: 12px;
 	float: left;
+	border-bottom: 1px solid #c1c1c1;
 }
 
 #cancel-comment-reply-link {
 	margin-left: 20px;
+}
+
+.mention {
+  background: #ddd;
 }

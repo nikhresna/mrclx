@@ -3,7 +3,7 @@
 	<div id="footer">
 		<div class="footer">
 			<div class="footer-nav">
-				<h3 class="footer-heading">Menu</h3>
+				<h4 class="footer-heading">MENU</h4>
 				<?php
 					// call primary menu
 					if( has_nav_menu('footer_menu') ) {
@@ -19,7 +19,7 @@
 				?>
 			</div>
 			<div class="footer-categories">
-				<h3 class="footer-heading">Categories</h3>
+				<h4 class="footer-heading">CATEGORIES</h4>
 				<ul>
 					<?php 
 							$args = array(
@@ -43,7 +43,7 @@
 				</ul>
 			</div>
 			<div class="footer-links">
-				<h3 class="footer-heading">Other Links</h3>
+				<h4 class="footer-heading">OTHER LINKS</h4>
 				<?php
 					if( has_nav_menu('footer_links') ) {
 						wp_nav_menu( array(

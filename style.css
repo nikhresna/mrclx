@@ -391,7 +391,9 @@ body {
   line-height: 1.4; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Montserrat, serif; }
+  font-family: Montserrat, serif;
+  margin: 0;
+  margin-bottom: 10px; }
 
 a {
   color: #5f9ea0;
@@ -410,13 +412,9 @@ a {
 p a {
   color: #5f9ea0; }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background: #ddd; }
-
-::-webkit-scrollbar-track {
-  background: white;
-  border-radius: 5px; }
+pre {
+  background: #ddd;
+  padding: 1em; }
 
 img.alignright {
   float: right;
@@ -530,7 +528,7 @@ img.aligncenter {
 
 .article-list-item {
   position: relative;
-  margin: 3em 0;
+  margin: 1em 0 3em;
   padding: 10px 0;
   list-style-type: none; }
 
@@ -543,6 +541,13 @@ img.aligncenter {
     font-weight: 500; }
     .article-list-cat a:hover {
       color: #335556; }
+
+.article-title {
+  margin: 0 20px; }
+
+.article-link {
+  font-family: Montserrat;
+  margin: 0; }
 
 .category-title {
   margin: 20px;
@@ -558,7 +563,10 @@ img.aligncenter {
 .read-more {
   font-size: 14px;
   color: #c1c1c1;
-  font-weight: 500; }
+  font-weight: 500;
+  border-bottom: 1px solid #c1c1c1; }
+  .read-more:hover {
+    border-color: #335556; }
 
 @media (max-width: 560px) {
   .article-link {
@@ -605,11 +613,13 @@ img.aligncenter {
     display: none; } }
 .article-content {
   margin: auto;
-  padding: 40px 20px;
   max-width: 960px; }
 
-.comment-respond {
-  margin-top: 50px; }
+.article-wrapper {
+  padding: 40px 20px; }
+
+.comment .comment-respond {
+  margin-left: 50px; }
 
 /* http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+javascript */
 /**
@@ -760,6 +770,30 @@ pre.language-ruby {
 .aligncenter {
   text-align: center; }
 
+p > code {
+  background: #ddd; }
+
+blockquote {
+  position: relative;
+  font-style: italic;
+  font-size: 14px; }
+  blockquote:before, blockquote:after {
+    content: '"';
+    position: absolute;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1; }
+  blockquote:before {
+    top: 0;
+    left: -20px; }
+  blockquote:after {
+    bottom: -14px;
+    right: -20px; }
+
+.footnotes {
+  font-size: 12px; }
+
 .comments-list ul {
   margin: 0;
   padding: 0;
@@ -803,7 +837,8 @@ pre.language-ruby {
   text-align: right; }
 
 #comment {
-  width: 100%; }
+  width: 100%;
+  height: 136px; }
 
 .comment-form-comment {
   margin: 0; }
@@ -826,10 +861,14 @@ pre.language-ruby {
 
 .comment-reply-link {
   font-size: 12px;
-  float: left; }
+  float: left;
+  border-bottom: 1px solid #c1c1c1; }
 
 #cancel-comment-reply-link {
   margin-left: 20px; }
+
+.mention {
+  background: #ddd; }
 
 .pagination {
   margin: 0 20px 50px; }
@@ -848,6 +887,9 @@ pre.language-ruby {
   text-align: center;
   font-size: 12px;
   font-weight: 600; }
+
+.pagination-links * {
+  margin: 0 5px; }
 
 .page-template-login-page {
   background: #000; }
@@ -916,7 +958,7 @@ pre.language-ruby {
   background-color: #dfe3ee;
   left: 50%; }
   .wp-social-login-provider-facebook:before {
-    background-image: url("_includes/img/facebook.svg"); }
+    background-image: url("_includes/img/login1.svg"); }
   .wp-social-login-provider-facebook:after {
     border-bottom: 41px solid #8b9dc3; }
 
@@ -925,7 +967,7 @@ pre.language-ruby {
   left: 50%;
   top: 88px; }
   .wp-social-login-provider-github:before {
-    background-image: url("_includes/img/github.svg"); }
+    background-image: url("_includes/img/login2.svg"); }
   .wp-social-login-provider-github:after {
     border-bottom: 41px solid #6cc644; }
 
@@ -934,6 +976,33 @@ pre.language-ruby {
   left: calc(50% + 44px);
   top: 44px; }
   .wp-social-login-provider-google:before {
-    background-image: url("_includes/img/google.svg"); }
+    background-image: url("_includes/img/login3.svg"); }
   .wp-social-login-provider-google:after {
     border-bottom: 41px solid #bfbfbf; }
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+th,
+td {
+  border: 1px solid #f1f1f1;
+  padding: 1em; }
+  th:nth-child(even),
+  td:nth-child(even) {
+    background: #fbfbfb; }
+
+.table-responsive {
+  font-size: 14px; }
+  .table-responsive pre {
+    margin: 0;
+    margin-bottom: 10px; }
+
+.table-markdown td {
+  vertical-align: -webkit-baseline-middle; }

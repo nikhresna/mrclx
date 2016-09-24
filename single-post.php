@@ -18,52 +18,54 @@ if (have_posts()) :
         <div class="article-list-image" style="background-image: url(<?php the_post_thumbnail_url('full', array('class' => 'article-image')); ?>);">
           <?php // the_post_thumbnail('full', array('class' => 'article-image')); ?>
           <div class="article-image-overlay"></div>
-          <span class="article-link"><?php the_title(); ?></span>
+          <span class="article-link"><?php echo strtoupper(get_the_title()); ?></span>
         </div>
 
-        <div class="article-content">
-        	<?php  
-        		if (current_user_can('edit_posts' )) {
-        			?>
-        				<a href="<?php echo get_edit_post_link(); ?>">Edit</a>
-        			<?php
-        		}
+        <div class="article-wrapper">
+          <div class="article-content">
+          	<?php  
+          		if (current_user_can('edit_posts' )) {
+          			?>
+          				<a href="<?php echo get_edit_post_link(); ?>">Edit</a>
+          			<?php
+          		}
 
-	        	the_content();
+  	        	the_content();
 
-            sharer();
+              sharer();
 
-	        	$form_args = array(
-						  'name_submit'       => 'submit',
-						  'title_reply'       => __( 'Leave a Reply' ),
-						  'title_reply_to'    => __( 'Leave a Reply to %s' ),
-						  'cancel_reply_link' => __( 'Cancel Reply' ),
-						  'label_submit'      => __( 'Comment' ),
-						  'format'            => 'xhtml',
+  	        	$form_args = array(
+  						  'name_submit'       => 'submit',
+  						  'title_reply'       => __( 'Leave a Reply' ),
+  						  'title_reply_to'    => __( 'Leave a Reply to %s' ),
+  						  'cancel_reply_link' => __( 'Cancel Reply' ),
+  						  'label_submit'      => __( 'Comment' ),
+  						  'format'            => 'xhtml',
 
-						  'comment_field' =>  '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true">' .
-						    '</textarea></p>',
+  						  'comment_field' =>  '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true">' .
+  						    '</textarea></p>',
 
-						  'must_log_in' => '<p class="must-log-in">' .
-						    sprintf(
-						      __( 'You must be <a href="%s">logged in</a> to post a comment.' ),
-						      get_home_url('', '/login')
-						    ) . '</p>',
+  						  'must_log_in' => '<p class="must-log-in">' .
+  						    sprintf(
+  						      __( 'You must be <a href="%s">logged in</a> to post a comment.' ),
+  						      get_home_url('', '/login')
+  						    ) . '</p>',
 
-						  'logged_in_as' => '',
+  						  'logged_in_as' => '',
 
-						  'comment_notes_before' => '',
+  						  'comment_notes_before' => '',
 
-						  'comment_notes_after' => '<p class="comment_notes_after">* markdown supported. <a href="'. get_home_url() .'/markdown-reference">Markdown reference.</a></p>',
+  						  'comment_notes_after' => '<p class="comment_notes_after">* markdown supported. <a href="'. get_home_url() .'/markdown-reference">Markdown reference.</a></p>',
 
-						  'fields' => apply_filters( 'comment_form_default_fields', $fields ),
-						);
-	        	comment_form($form_args);
+  						  'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+  						);
+  	        	comment_form($form_args);
 
-	        	?>
-	        	<div class="comments-list">
-		        	<?php comments_template(); ?>
-	        	</div>
+  	        	?>
+  	        	<div class="comments-list">
+  		        	<?php comments_template(); ?>
+  	        	</div>
+          </div>
         </div>
       </li>
       <?php

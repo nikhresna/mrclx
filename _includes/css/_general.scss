@@ -11,6 +11,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Montserrat, serif;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 a {
@@ -37,15 +39,12 @@ p {
 	}
 }
 
-::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: #ddd;
+pre {
+	background: #ddd;
+	padding: 1em;
 }
 
-::-webkit-scrollbar-track {
-    background: white;
-    border-radius: 5px;
-}
+
 
 img.alignright { float: right; margin: 0 0 1em 1em; }
 img.alignleft { float: left; margin: 0 1em 1em 0; }

@@ -27,7 +27,7 @@ if (have_posts()) {
         </div>
         <a href="<?php the_permalink(); ?>" class="article-list-image" style="background-image: url(<?php the_post_thumbnail_url('full', array('class' => 'article-image')); ?>);">
           <div class="article-image-overlay"></div>
-          <h2 class="article-link"><?php echo strtoupper(get_the_title()); ?></h2>
+          <h2 class="article-link"><?php the_title(); ?></h2>
           <div class="article-list-cat mobile">
             <?php
               echo the_category(', ');

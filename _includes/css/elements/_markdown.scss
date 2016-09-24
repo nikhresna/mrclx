@@ -141,3 +141,36 @@ $langs: ("css", "js", "php", "ruby");
 .aligncenter {
 	text-align: center;
 }
+
+p>code {
+	background: #ddd;
+}
+
+blockquote {
+	position: relative;
+	font-style: italic;
+	font-size: 14px;
+
+	&:before,
+	&:after {
+		content: '"';
+		position: absolute;
+		font-family: Montserrat;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+	}
+
+	&:before {
+		top: 0;
+		left: -20px;
+	}
+	&:after {
+		bottom: -14px;
+		right: -20px;
+	}
+}
+
+.footnotes {
+	font-size: 12px;
+}

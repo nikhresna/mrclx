@@ -1,9 +1,14 @@
 .article-content {
 	margin: auto;
-	padding: 40px 20px;	
 	max-width: 960px;
 }
 
-.comment-respond {
-	margin-top: 50px;
+.article-wrapper {
+	padding: 40px 20px;	
+}
+
+.comment {
+	.comment-respond {
+		margin-left: 50px;
+	}
 }

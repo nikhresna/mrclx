@@ -185,13 +185,16 @@ function sharer() {
 		<h4>Sharing is caring via:</h4>
 		<ul>
 			<li>
-				<a href="https://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>">FB</a>
+				<a href="https://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>">Facebook</a>
 			</li>
 			<li>
 				<a href="http://line.me/R/msg/text/?<?php the_title(); ?>%0D%0A<?php the_permalink(); ?>">LINE</a>
 			</li>
 			<li>
-				<a href="whatsapp://send?text=<?php the_permalink(); ?>" data-action="share/whatsapp/share">WA</a>
+				<a href="whatsapp://send?text=<?php the_permalink(); ?>" data-action="share/whatsapp/share">Whatsapp</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/home?status=Check%20this%20article%20<?php the_permalink(); ?>" data-action="share/whatsapp/share">Twitter</a>
 			</li>
 		</ul>
 	<?php
