@@ -12,6 +12,7 @@ cd wp-content/themes/mrclx && sass --watch _includes/css/style.scss:style.css --
 @import "normalize";
 @import "general";
 @import "elements/header";
+@import "elements/search";
 @import "elements/footer";
 @import "elements/nav";
 @import "elements/article";
@@ -21,3 +22,4 @@ cd wp-content/themes/mrclx && sass --watch _includes/css/style.scss:style.css --
 @import "elements/pagination";
 @import "elements/login-form";
 @import "elements/table";
+@import "elements/error404";

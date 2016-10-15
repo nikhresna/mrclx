@@ -11,6 +11,12 @@ if (have_posts()) {
       <h3><?php echo $wp_query->get_queried_object()->name ?></h3> 
     </div>
     <?php
+  } elseif (is_search()) {
+    ?> 
+    <div class="category-title">
+      <h3>Result for keyword: "<?php echo get_search_query() ?>"</h3> 
+    </div>
+    <?php
   }
 
   ?><ul class="article-list"><?php

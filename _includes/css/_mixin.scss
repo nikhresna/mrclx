@@ -18,3 +18,41 @@
 	-webkit-filter: $args;
 	filter: $args;
 }
+
+@mixin prefix( $property, $args, $default : true ) {
+
+	$vendors : webkit moz o;
+	
+	@if $args == inline-flex {
+		display: -webkit-inline-flex;
+		display: -ms-inline-flexbox;
+	} 
+	
+	@else if $args == flex {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+	} 
+	
+	@else if $property == linear-gradient {
+		-webkit-linear-gradient : $args;
+	} 
+
+	@else if $property == filter {
+		-webkit-filter: $args;
+	} 
+
+	else {
+		@each $vendor in $vendors {
+			#{ "-" + $vendor + "-" + $property }: #{ $args };
+		}
+	}
+	
+	// ----------------------
+	// output default syntax
+	
+	@if $default {
+		#{ $property } : #{ $args }
+	}
+}

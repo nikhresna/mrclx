@@ -86,8 +86,12 @@
 
 .comment-reply-link {
 	font-size: 12px;
-	float: left;
 	border-bottom: 1px solid #c1c1c1;
+}
+
+.comment-ui {
+	@include prefix(display, flex);
+	float: left;
 }
 
 #cancel-comment-reply-link {
@@ -96,4 +100,17 @@
 
 .mention {
   background: #ddd;
+}
+
+.comment-up,
+.comment-down {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 0 5px;
+
+
+	img {
+		display: block;
+	}
 }

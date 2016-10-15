@@ -5,7 +5,7 @@
 body {
   font-family: 'Lato', sans-serif;
 	color: rgba(0,0,0,0.87);
-	padding-top: 52px;
+	padding-top: 43px;
 	line-height: 1.4;
 }
 
@@ -44,7 +44,25 @@ pre {
 	padding: 1em;
 }
 
+img {
+	max-width: 100%;
+}
 
+input[type="submit"] {
+	background: none;
+	border: 1px solid #335556;
+	box-shadow: none;
+	outline: none;
+	color: #335556;
+	&:focus,
+	&:active {
+		color: #c1c1c1;
+	}
+}
+
+img[src$='.svg'] {
+	width: 100%; height: auto;
+}
 
 img.alignright { float: right; margin: 0 0 1em 1em; }
 img.alignleft { float: left; margin: 0 1em 1em 0; }
