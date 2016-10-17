@@ -71,16 +71,17 @@ function enqueue_style() {
 
     wp_enqueue_script('theme-js', get_template_directory_uri() . '/_includes/js/script.js', array(), '1.0.0', true);
     wp_enqueue_script('search-js', get_template_directory_uri() . '/_includes/js/search.js', array(), '1.0.0', true);
+    wp_enqueue_script('comment-vote-js', get_template_directory_uri() . '/_includes/js/comment-vote.js', array(), '1.0.0', true);
 
 		$wp_typeahead_vars = array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) );
 		wp_localize_script( 'search-js', 'wp_typeahead', $wp_typeahead_vars );
 
+		$comment_vote_vars = array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) );
+		wp_localize_script( 'comment-vote-js', 'comment_vote', $comment_vote_vars );
+
     wp_deregister_script( 'wp-embed' );
 
 }
-// add_action('wp_ajax_nopriv_ajax_search', 'ajax_search');
-// add_action('wp_ajax_ajax_search', 'ajax_search');
-
 
 add_action('wp_enqueue_scripts', 'enqueue_style');
 
@@ -204,11 +205,31 @@ function comment_callback($comment, $args, $depth) {
 				echo "<a href='$url' class='delete:the-comment-list:comment-$comment->comment_ID delete'>" . __('- Delete') . "</a> ";
 				// echo  wp_delete_comment($comment->comment_ID);
 
+				$el_class = '';
+				$id = $comment->comment_ID;
+				$old_user_meta = get_user_meta( get_current_user_id(), 'voted_comment', $id );
+
+				if(in_array($id, $old_user_meta)) {
+					$el_class = 'voted';
+				}
 				?>
 					<div class="comment-ui">
-						<a href="#" class="comment-up"><img src="<?php echo get_stylesheet_directory_uri(); ?>/_includes/img/chevron-up.svg"></a>
-						<span class="comment-num">0</span>
-						<a href="#" class="comment-down"><img src="<?php echo get_stylesheet_directory_uri(); ?>/_includes/img/chevron-down.svg"></a>
+						<a href="#" class="comment-up<?php if($el_class):echo ' comment-up-'.$el_class; endif; ?>" data-id="<?php echo $comment->comment_ID ?>">
+							<!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/_includes/img/chevron-up.svg"> -->
+							<svg x="0px" y="0px"
+								 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+								<path d="M15.484,12.452c-0.436,0.446-1.043,0.481-1.576,0L10,8.705l-3.908,3.747c-0.533,0.481-1.141,0.446-1.574,0
+								c-0.436-0.445-0.408-1.197,0-1.615c0.406-0.418,4.695-4.502,4.695-4.502C9.43,6.112,9.715,6,10,6s0.57,0.112,0.789,0.335
+								c0,0,4.287,4.084,4.695,4.502C15.893,11.255,15.92,12.007,15.484,12.452z"/>
+							</svg>
+						</a>
+						<span class="comment-num">
+							<?php if(get_comment_meta( $comment->comment_ID, 'vote', true ) !== '') {
+								echo get_comment_meta( $comment->comment_ID, 'vote', true );
+							} else {
+								echo '0';
+							} ?>	
+						</span>
 						<?php
 
 						comment_reply_link(array_merge($args, array(
@@ -299,4 +320,58 @@ function my_awesome_func( $data ) {
   endwhile; wp_reset_postdata(); endif;
 
   wp_send_json( $list );
+}
+
+
+// typeahead
+add_action( 'wp_ajax_nopriv_ajax_search', 'ajax_search' );
+add_action( 'wp_ajax_ajax_search', 'ajax_search' );
+
+function ajax_search() {
+	if ( isset( $_REQUEST['fn'] ) && 'get_ajax_search' == $_REQUEST['fn'] ) {
+		$search_query = new WP_Query( array(
+			's' => $_REQUEST['terms'],
+			'posts_per_page' => 10,
+			'no_found_rows' => true,
+		) );
+
+		$results = array( );
+		if ( $search_query->get_posts() ) {
+			foreach ( $search_query->get_posts() as $the_post ) {
+				$title = get_the_title( $the_post->ID );
+				$results[] = array(
+					'value' => $title,
+					'url' => get_permalink( $the_post->ID ),
+					'tokens' => explode( ' ', $title ),
+				);
+			}
+		}
+
+		wp_reset_postdata();
+		echo json_encode( $results );
+	}
+	die();
+}
+
+// vote up
+add_action( 'wp_ajax_comment_vote_up', 'comment_vote_up' );
+add_action( 'wp_ajax_nopriv_comment_vote_up', 'comment_vote_up' );
+
+function comment_vote_up() {
+	$id = $_POST['data']['id'];
+	$old_user_meta = get_user_meta( get_current_user_id(), 'voted_comment', $id );
+	$old_value = get_comment_meta( $id, 'vote', true );
+
+	if(in_array($id, $old_user_meta)) {
+		$key = array_search($id, $old_user_meta);
+	  unset($old_user_meta[$key]);
+		update_user_meta( get_current_user_id(), 'voted_comment', $old_user_meta );
+	  update_comment_meta( $id, 'vote', $old_value - 1 );
+		wp_send_json_success( get_comment_meta( $id, 'vote', true ) );
+	}
+
+	array_push($old_user_meta, $id);
+	update_user_meta( get_current_user_id(), 'voted_comment', $old_user_meta );
+  update_comment_meta( $id, 'vote', $old_value + 1 );
+  wp_send_json_success( get_comment_meta( $id, 'vote', true ) );
 }

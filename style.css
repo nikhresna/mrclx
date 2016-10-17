@@ -429,7 +429,6 @@ input[type="submit"] {
     color: #c1c1c1; }
 
 img[src$='.svg'] {
-  width: 100%;
   height: auto; }
 
 img.alignright {
@@ -932,7 +931,8 @@ blockquote {
 
 .comment-reply-link {
   font-size: 12px;
-  border-bottom: 1px solid #c1c1c1; }
+  border-bottom: 1px solid #c1c1c1;
+  margin-left: 10px; }
 
 .comment-ui {
   display: -webkit-box;
@@ -961,6 +961,9 @@ blockquote {
   .comment-up img,
   .comment-down img {
     display: block; }
+  .comment-up-voted svg,
+  .comment-down-voted svg {
+    fill: #5f9ea0; }
 
 .pagination {
   margin: 0 20px 50px; }

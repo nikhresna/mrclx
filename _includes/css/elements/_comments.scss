@@ -87,6 +87,7 @@
 .comment-reply-link {
 	font-size: 12px;
 	border-bottom: 1px solid #c1c1c1;
+	margin-left: 10px;
 }
 
 .comment-ui {
@@ -109,8 +110,11 @@
 	height: 15px;
 	margin: 0 5px;
 
-
 	img {
 		display: block;
+	}
+
+	&-voted svg {
+		fill: #5f9ea0;
 	}
 }
