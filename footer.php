@@ -42,21 +42,21 @@
 					?>
 				</ul>
 			</div>
-			<div class="footer-links">
-				<h4 class="footer-heading">OTHER LINKS</h4>
-				<?php
-					if( has_nav_menu('footer_links') ) {
+
+			<?php if( has_nav_menu('footer_links') ) { ?>
+				<div class="footer-links">
+					<h4 class="footer-heading">OTHER LINKS</h4>
+					<?php
 						wp_nav_menu( array(
 							'theme_location' 	=> 'footer_links',
 							'container' 		=> 'ul',
 							'container_class' 	=> 'menu',
 							'items_wrap' 		=> '<ul id="%1$s" class="%2$s">%3$s</ul>' ) 
 						); 
-					} else {
-						echo '<li><a href="#">No menu assigned!</a></li>';
-					}
-				?>
-			</div>
+					?>
+				</div>
+			<?php } ?>
+			
 		</div>
 
 		<div class="footer-copyright">
@@ -64,11 +64,6 @@
 		</div>
 	</div>
 	<?php wp_footer() ?>
-
-	<?php if (is_singular()) { ?>
-		<script src="<?php echo get_stylesheet_directory_uri().'/_includes/js/comment-reply.js' ?>" type="text/javascript" async></script>
-		<script src="<?php echo get_stylesheet_directory_uri().'/_includes/js/comment-vote.js' ?>" type="text/javascript" async></script>
-	<?php	} ?>
 </body>
 
 <?php 

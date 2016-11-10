@@ -1,5 +1,3 @@
-console.time('script');
-
 elementList = document.querySelectorAll('.comment-link');
 // console.log(elementList.length);
 
@@ -38,9 +36,3 @@ if (hash) {
 		2000
 	)
 }
-
-// var cookie = document.cookie;
-// console.log(cookie);
- // = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
-
-console.timeEnd('script');

@@ -2,9 +2,13 @@ jQuery('.comment-up').each(function() {
 	jQuery(this).unbind().on('click', function() {
 		event.preventDefault();
 		event.stopPropagation();
+		if(comment_vote.status !== '1') {
+			alert('please login to upvote comment');
+			return;
+		};
+			
 		var el = jQuery(this);
 		var dataid = jQuery(this).data('id');
-		console.log(dataid);
 		jQuery.ajax({
 			url: comment_vote.ajaxurl,
 			type: 'POST',
@@ -17,8 +21,7 @@ jQuery('.comment-up').each(function() {
 			if(response['success'] == false) {
 				alert(response['data']);
 			} else {
-				console.log(response);
-				el.toggleClass('comment-up-voted');
+				el.find('.icon-heart').toggleClass('fill');
 		    el.siblings('.comment-num').html(response['data']);
 		  }
 		})

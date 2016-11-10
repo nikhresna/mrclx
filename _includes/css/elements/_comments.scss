@@ -84,6 +84,7 @@
 	display: inline;
 }
 
+.comment-reply-login,
 .comment-reply-link {
 	font-size: 12px;
 	border-bottom: 1px solid #c1c1c1;
@@ -103,18 +104,22 @@
   background: #ddd;
 }
 
-.comment-up,
-.comment-down {
+.comment-up {
 	display: inline-block;
 	width: 15px;
 	height: 15px;
 	margin: 0 5px;
-
+	
+	svg {
+		fill: #a9a9a9;
+	}
+	
 	img {
 		display: block;
 	}
 
 	&-voted svg {
-		fill: #5f9ea0;
+		fill: #f1c405;
 	}
+
 }
